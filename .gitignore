@@ -59,3 +59,19 @@ typings/
 
 # next.js build output
 .next
+
+# custom
+package-lock.json
+yarn.lock
+
+# temp
+*.private.js
+temp
+.sonarlint
+.scannerwork
+dist/
+build
+dll
+webpack.config.js
+temp*
+src/views/test
