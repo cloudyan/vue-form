@@ -5,14 +5,14 @@
 // import dateRange from './dateRange'
 import input from './input'
 // import list from './list'
-// import map from './map'
+import map from './map'
 // import multiSelect from './multiSelect'
-// import number from './number'
+import number from './number'
 // import radio from './radio'
 import select from './select'
 // import slider from './slider'
 // import switch1 from './switch'
-// import textarea from './textarea'
+import textarea from './textarea'
 // import upload from './upload'
 
 export const widgets = {
@@ -23,14 +23,14 @@ export const widgets = {
   // dateRange,
   input,
   // list,
-  // map,
+  map,
   // multiSelect, // 下拉多选
-  // number,
+  number,
   // radio,
   select,
   // slider, // 带滚条的number
   // switch: switch1,
-  // textarea,
+  textarea,
   // upload,
 }
 
@@ -55,3 +55,5 @@ export const mapping = {
   'array?enum': 'checkboxes',
   '*?readonly': 'text',
 }
+
+export const piping = {}

@@ -10,6 +10,14 @@ Vue.use(Element, {
   // i18n: (key, value) => i18n.t(key, value),
 })
 
+Vue.config.productionTip = false
+
+if (process.env.NODE_ENV == 'development') {
+  Vue.config.devtools = true
+} else {
+  Vue.config.devtools = false
+}
+
 new Vue({
   el: '#app',
   router,

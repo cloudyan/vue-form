@@ -19,3 +19,4 @@ JSON Schema 里的字段可以描述表单的标题、描述、类型、必须�
 - [form-render](https://github.com/alibaba/form-render)
 - [form-create](https://github.com/xaboy/form-create)
 
+vue 的 jsx 组装对函数的支持并没有 react 灵活

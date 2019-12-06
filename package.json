@@ -2,7 +2,7 @@
   "name": "@deepjs/vue-form-render",
   "version": "0.0.1",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve ./demo/main.js",
     "build": "vue-cli-service build --progress --report",
     "lint": "vue-cli-service lint",
     "dll": "vue-cli-service dll",
@@ -51,7 +51,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "3.12.1",
+    "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-e2e-cypress": "3.12.1",
     "@vue/cli-plugin-eslint": "3.12.1",
     "@vue/cli-plugin-pwa": "3.12.1",
