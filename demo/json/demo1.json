@@ -12,9 +12,6 @@
             "options": {
               "disabled": true,
               "placeholder": "昵称"
-            },
-            "ui:options": {
-              "placeholder": "昵称"
             }
           },
           "textarea": {
@@ -55,5 +52,9 @@
         }
       }
     }
+  },
+  "formData": {
+    "AllString": {},
+    "select": ""
   }
 }

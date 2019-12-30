@@ -4,6 +4,7 @@
 module.exports = {
   presets: [
     '@vue/app',
+    '@vue/babel-preset-jsx',
     // {
     //   polyfills: [
     //     'es6.array.iterator',

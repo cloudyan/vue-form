@@ -1,9 +1,7 @@
-import parse from './parser'
+import { parse, getSubSchemas } from './parser'
 import RenderField from './render-field'
+import getField from './get-field'
 
-// 功能 基本组件包装 组装数据和组件
-// 配置 settings
-// 匹配约束(材料) fields
 export default {
   name: 'render-field',
   functional: true,
@@ -13,26 +11,26 @@ export default {
       settings = {},
       fields,
     } = ctx.props
-    const { schema, formData } = settings
+    let { schema, formData } = settings
 
     // 解析数据
     const { Field, props } = parse(settings, fields)
-
-    props.disabled = true
-    console.log('props', props)
-    // name value schema formData options
-    // displayType required disabled readonly
-    // fields widgets
 
     if (!Field) return null
 
     if (schema.type === 'object') {
       const { properties = [] } = schema
+
+      console.log(Object.keys(properties))
+
       const nodes = Object.keys(properties).map(name => {
+        const current = properties[name]
+        const data = ['object', 'array'].includes(current.type) ? formData[name] : formData
+
         const subSetting = {
           vname: name,
-          formData,
-          schema: properties[name],
+          formData: data,
+          schema: current,
         }
         // console.log('subSetting', subSetting)
         return (
@@ -50,10 +48,11 @@ export default {
     // - value 当前组件的值
     // - formData 全部数据
     return (
-      <div class="fr-field">
-        <div class="fr-label">{props.schema.title}</div>
+      <div class="fr-field" style="margin-top: 10px;">
+        <div class="fr-label">{props.vname}: {props.schema.title}</div>
+        <div>{props.schema.description}</div>
         <Field
-          isRoot
+          // isRoot
           {...props}
           vname={props.vname}
           schema={props.schema}

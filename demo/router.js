@@ -3,19 +3,29 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import form from './form'
-
-// const lazyLoad =
-//   process.env.NODE_ENV === 'production'
-//     ? file => () => import(/* webpackChunkName: "[request]" */ `@/views/${file}`)
-//     : file => require(`@/views/${file}`).default
+const lazyLoad =
+  process.env.NODE_ENV === 'production'
+    ? file => () => import(/* webpackChunkName: "[request]" */ `./views/${file}`)
+    : file => require(`./views/${file}`).default
 
 const routes = [
   {
     path: '/',
-    component: form,
+    component: lazyLoad('form'),
     name: 'form',
     meta: { title: 'form' },
+  },
+  // {
+  //   path: '/test',
+  //   component: lazyLoad('test'),
+  //   name: 'test',
+  //   meta: { title: 'test' },
+  // },
+  {
+    path: '/test2',
+    component: lazyLoad('test2'),
+    name: 'test2',
+    meta: { title: 'test2' },
   },
 ]
 

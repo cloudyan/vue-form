@@ -1,4 +1,4 @@
-import getField from './get-field'
+// import getField from './get-field'
 
 // 对于数组或对象类型，获取其子集schema
 export function getSubSchemas(schema = {}) {
@@ -7,7 +7,6 @@ export function getSubSchemas(schema = {}) {
     properties,
     // array subset
     items,
-    column,
     // as subset's parent
     ...$parent
   } = schema
@@ -24,9 +23,8 @@ export function getSubSchemas(schema = {}) {
     children = [].concat(items)
   }
   return Object.keys(children).map(vname => ({
-    schema: children[vname],
     vname,
-    column,
+    schema: children[vname],
     // parent propsSchema
     $parent,
   }))
@@ -37,24 +35,8 @@ function getBasicProps(settings, materials) {
     schema,
     vname = '',
     $parent = {},
-    column,
-    displayType,
-    showDescIcon,
-    showValidate,
     formData,
   } = settings
-  // 目前做了处理的`uiSchema`参数
-  const {
-    'ui:className': className,
-    'ui:options': options = {},
-    'ui:hidden': hidden,
-    'ui:disabled': disabled,
-    'ui:width': width,
-    'ui:readonly': readonly,
-    'ui:extraButtons': extraButtons = [],
-    'ui:dependShow': dependShow,
-    'ui:action': action,
-  } = schema
   const { required = [] } = $parent
   const { generated: widgets, customized: fields } = materials
   // 标准化属性模型
@@ -62,49 +44,30 @@ function getBasicProps(settings, materials) {
   let basicProps = {
     vname,
     schema,
-    column,
-    displayType,
-    showDescIcon,
-    showValidate,
-    options, // 所有特定组件规则，addable等规则TODO
-    hidden,
-    required: required.indexOf(vname) !== -1,
-    disabled: disabled,
-    readonly: readonly,
-    width,
     widgets,
     fields,
     formData,
-  }
-  // 假如有表达式来决定显示的场景，才传入dependShow,formData
-  if (dependShow) {
-    basicProps = { ...basicProps, dependShow }
-  }
-  if (className) {
-    basicProps = { ...basicProps, className }
-  }
-  if (action) {
-    basicProps = { ...basicProps, action }
   }
   // 子集的属性
   const subItems = {}
   const subSchemas = getSubSchemas(schema)
 
+  // debugger
+
   subSchemas.forEach(subSchema => {
     const { vname: _vname, schema: _schema = {} } = subSchema
     subItems[_vname] = {
-      field: getField(_schema, materials),
+      // field: getField(_schema, materials),
       props: getBasicProps(
         {
           ...subSchema,
-          column,
-          showDescIcon,
-          displayType,
           formData,
         },
         materials
       ),
     }
+
+    console.log(subItems[_vname].props)
   })
   if (['array', 'object'].indexOf(schema.type) >= 0) {
     // 传入name和Field（如果重定义Field的话）及其配置信息（如onChange等）
@@ -153,7 +116,7 @@ function getBasicProps(settings, materials) {
 export const parse = (settings = {}, materials) => {
   const { schema = {} } = settings
   return {
-    Field: getField(schema, materials).Field,
+    // Field: getField(schema, materials).Field,
     props: getBasicProps(settings, materials),
   }
 }

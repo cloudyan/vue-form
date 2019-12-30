@@ -12,7 +12,6 @@ const noop = () => {}
 // 遍历数据实现递归调用
 // 将素材, 包装到 fields
 // 遍历 schema
-
 export default {
   name: 'form-render',
   functional: true,
@@ -64,7 +63,6 @@ export default {
     },
   },
   render(h, ctx) {
-    console.log(111, ctx)
     const {
       vname,
       schema,

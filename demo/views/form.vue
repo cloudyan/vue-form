@@ -13,8 +13,11 @@
 
 <script>
 // :propsSchema="propsSchema"
-import FormRender from '../src/element-ui'
-import SCHEMA from './json/demo1'
+import FormRender from '../../src/element-ui'
+// import SCHEMA from '../json/demo1'
+// import SCHEMA from '../json/basic'
+// import SCHEMA from '../json/demo'
+import SCHEMA from '../json/input'
 
 export default {
   name: 'page-form',
@@ -25,10 +28,7 @@ export default {
     return {
       // propsSchema: SCHEMA.propsSchema,
       schema: SCHEMA.propsSchema,
-      formData: SCHEMA.formData || {
-        string: '',
-        select: '',
-      },
+      formData: SCHEMA.formData || {},
     }
   },
   created() {
