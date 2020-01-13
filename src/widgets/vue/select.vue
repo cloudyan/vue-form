@@ -17,9 +17,14 @@
 </template>
 
 <script>
+import { Select, Option } from 'element-ui'
 import { mixinCommon } from '../../common/utils'
 
 export default {
+  components: {
+    [Select.name]: Select,
+    [Option.name]: Option,
+  },
   mixins: [
     mixinCommon,
   ],

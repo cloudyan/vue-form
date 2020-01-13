@@ -16,12 +16,12 @@ module.exports = {
     'jsx-v-model',
     'transform-vue-jsx',
     '@babel/plugin-proposal-export-default-from',
-    // [
-    //   'component',
-    //   {
-    //     libraryName: 'element-ui',
-    //     // styleLibraryName: 'theme-chalk',
-    //   },
-    // ],
+    [
+      'component',
+      {
+        'libraryName': 'element-ui',
+        'styleLibraryName': 'theme-chalk',
+      },
+    ],
   ],
 }

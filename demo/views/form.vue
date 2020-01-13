@@ -144,6 +144,8 @@ export default {
   background: #fff;
   box-shadow: 2px 0 2px 2px rgba(0, 0, 0, 0.05);
   padding: 10px 30px;
+  // display: flex;
+  // align-items: center;
 }
 </style>
 

@@ -7,9 +7,13 @@
 </template>
 
 <script>
+import { Input } from 'element-ui'
 import { mixinCommon } from '../../common/utils'
 
 export default {
+  components: {
+    [Input.name]: Input,
+  },
   mixins: [
     mixinCommon,
   ],

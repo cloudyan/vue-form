@@ -40,9 +40,13 @@
 
 <script>
 import axios from 'axios'
+import { Upload } from 'element-ui'
 import { mixinCommon } from '../../common/utils'
 
 export default {
+  components: {
+    [Upload.name]: Upload,
+  },
   mixins: [
     mixinCommon,
   ],
