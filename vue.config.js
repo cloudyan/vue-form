@@ -54,38 +54,38 @@ module.exports = {
         //   priority: 0,
         //   chunks: 'initial',
         // },
-        vendors: {
-          name: `chunk-vendors`,
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          chunks: 'initial',
-        },
-        common: {
-          name: `chunk-common`,
-          minChunks: 2,
-          priority: -20,
-          chunks: 'initial',
-          reuseExistingChunk: true,
-        },
+        // vendors: {
+        //   name: `chunk-vendors`,
+        //   test: /[\\/]node_modules[\\/]/,
+        //   priority: -10,
+        //   chunks: 'initial',
+        // },
+        // common: {
+        //   name: `chunk-common`,
+        //   minChunks: 2,
+        //   priority: -20,
+        //   chunks: 'initial',
+        //   reuseExistingChunk: true,
+        // },
       },
     })
   },
   // dll 方案, 使用 vue-cli-plugin-dll
-  pluginOptions: {
-    dll: {
-      // 单入口
-      // entry: ['vue', 'vue-router', 'vuex', 'axios', 'element-ui', 'nprogress'],
-      // 多入口
-      entry: {
-        vue: ['vue', 'vue-router', 'vuex'], // core-js
-        ui: ['element-ui', 'nprogress'],
-      },
-      output: path.join(__dirname, './public/dll'),
-      // 只在生产环境加入 webpack.DllReferencePlugin 插件
-      open: true, // __PROD__,
-      inject: true,
-    },
-  },
+  // pluginOptions: {
+  //   dll: {
+  //     // 单入口
+  //     // entry: ['vue', 'vue-router', 'vuex', 'axios', 'element-ui', 'nprogress'],
+  //     // 多入口
+  //     entry: {
+  //       vue: ['vue', 'vue-router', 'vuex'], // core-js
+  //       ui: ['element-ui', 'nprogress'],
+  //     },
+  //     output: path.join(__dirname, './public/dll'),
+  //     // 只在生产环境加入 webpack.DllReferencePlugin 插件
+  //     open: true, // __PROD__,
+  //     inject: true,
+  //   },
+  // },
   css: {
     // loaderOptions: {
     //   stylus: {

@@ -1,12 +1,19 @@
 {
   "name": "@tobeai/form-render",
   "version": "0.0.1",
+  "main": "dist/form-render.common.js",
+  "module": "dist/form-render.esm.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve ./demo/main.js",
     "build": "vue-cli-service build --progress --report",
+    "package": "vue-cli-service build --target lib --name form-render ./src/index.js",
     "lint": "vue-cli-service lint",
     "dll": "vue-cli-service dll",
-    "commit": "npm run lint & npx git-cz"
+    "commit": "npm run lint & npx git-cz",
+    "publish:next": "npm publish --tag next"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
