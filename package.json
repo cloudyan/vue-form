@@ -28,10 +28,10 @@
     "vue-form-render",
     "form-render",
     "auto-render",
-    "tobeai"
+    "dwdjs"
   ],
   "author": "cloudyan <1395093509@qq.com>",
-  "license": "GPL",
+  "license": "AGPL-3.0-only",
   "engines": {
     "node": ">=8.9",
     "npm": ">= 3.0.0"
