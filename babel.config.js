@@ -4,7 +4,6 @@
 module.exports = {
   presets: [
     '@vue/app',
-    '@vue/babel-preset-jsx',
     // {
     //   polyfills: [
     //     'es6.array.iterator',
@@ -13,13 +12,16 @@ module.exports = {
     //   ],
     // },
   ],
-  // plugins: [
-  //   [
-  //     'component',
-  //     {
-  //       libraryName: 'element-ui',
-  //       // styleLibraryName: 'theme-chalk',
-  //     },
-  //   ],
-  // ],
+  plugins: [
+    'jsx-v-model',
+    'transform-vue-jsx',
+    '@babel/plugin-proposal-export-default-from',
+    // [
+    //   'component',
+    //   {
+    //     libraryName: 'element-ui',
+    //     // styleLibraryName: 'theme-chalk',
+    //   },
+    // ],
+  ],
 }

@@ -11,21 +11,21 @@ const lazyLoad =
 const routes = [
   {
     path: '/',
+    component: lazyLoad('guide'),
+    name: 'guide',
+    meta: { title: '指南' },
+  },
+  {
+    path: '/form',
     component: lazyLoad('form'),
     name: 'form',
     meta: { title: 'form' },
   },
-  // {
-  //   path: '/test',
-  //   component: lazyLoad('test'),
-  //   name: 'test',
-  //   meta: { title: 'test' },
-  // },
   {
-    path: '/test2',
-    component: lazyLoad('test2'),
-    name: 'test2',
-    meta: { title: 'test2' },
+    path: '/test',
+    component: lazyLoad('test'),
+    name: 'test',
+    meta: { title: 'test' },
   },
 ]
 

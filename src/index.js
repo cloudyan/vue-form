@@ -1,98 +1,85 @@
+/*!
+ * Created by cloudyan on 2019-12-30 15:39:50
+ * Last Modified by cloudyan on 2020-01-09 11:53:50
+ * 默认配置
+ */
 
-import parse from './base/parser'
-// import piping from './base/piping'
-import RenderField from './base/render-field'
+import { mapping, widgets } from './widgets/vue'
+import AutoRender from './auto-render'
 
-const noop = () => {}
+const doing = {
+  name: 'Doing',
+  functional: true,
+  props: {
+    schema: {
+      type: Object,
+    },
+  },
+  render(h, ctx) {
+    const { schema } = ctx.props
+    return (
+      <div class="doing">🆘『{schema.widget}』组件开发中...</div>
+    )
+  },
+}
 
-// https://cn.vuejs.org/v2/guide/render-function.html
-// 深入了解 context 参数
+Object.assign(widgets, {
+  doing,
+})
+Object.assign(mapping, { doing: 'doing' })
 
-// 功能设计: 核心组件 使用传入的素材组件和数据, 遍历处理, 组装数据和组件 并渲染结果
-// 遍历数据实现递归调用
-// 将素材, 包装到 fields
-// 遍历 schema
 export default {
-  name: 'form-render',
   functional: true,
   props: {
     vname: {
       type: String,
       default: '$form',
     },
-    column: {
-      type: Number,
-      default: 1,
-    },
-    schema: {
-      type: Object,
-      default: {},
-    },
-    formData: {
-      type: Object,
-      default: {},
-    },
-    mapping: {
-      type: Object,
-      default: {},
-    },
-    widgets: {
-      type: Object,
-      default: {},
-    },
-    // piping: {
-    //   type: Object,
-    //   default: {},
-    // },
-    fields: {
-      type: Object,
-      default: {},
-    },
-    showDescIcon: Boolean,
-    showValidate: {
-      type: Boolean,
-      default: true,
-    },
-    displayType: {
-      type: String,
-      default: 'column',
-    },
-    onChange: {
-      type: Function,
-      default: noop,
-    },
+    schema: Object,
+    formData: Object,
+    widgets: Array,
+    mapping: Object,
   },
+
   render(h, ctx) {
     const {
-      vname,
-      schema,
-      formData,
-      fields: customized,
-      mapping,
-      widgets,
+      mapping: customizedMapping,
+      widgets: customizedWidgets,
+      ...rest
     } = ctx.props
-    // 处理组件
-    const generated = widgets
+
+    Object.assign(rest, {
+      mapping: {
+        ...mapping,
+        ...customizedMapping,
+      },
+      widgets: {
+        ...widgets,
+        ...customizedWidgets,
+      },
+    })
+
+    // 当内部发生 change 时, 通知外部更新 以及谁更新了
+    function change(vname, val) {
+      // console.log('$form change')
+      ctx.listeners.change && ctx.listeners.change(vname, val)
+    }
+
+    // Object.assign(rest, listeners.change)
 
     return (
-      <div class="vue-form-render">
-        <RenderField
-          settings={{
-            vname,
-            schema,
-            formData,
-          }}
-          fields={{
-            // 根据 Widget 生成的 Field
-            generated,
-            // 自定义的 Field
-            customized,
-            // 字段 type 与 widgetName 的映射关系
-            mapping,
-          }}
-          // on={ctx.listeners}
-        />
-      </div>
+      <AutoRender
+        {...{props: rest}}
+        propsOnChange={change}
+        // mapping={{
+        //   ...mapping,
+        //   ...customizedMapping,
+        // }}
+        // widgets={{
+        //   ...widgets,
+        //   ...customizedWidgets,
+        // }}
+      />
     )
   },
 }

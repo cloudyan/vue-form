@@ -42,6 +42,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "element-ui": "^2.12.0",
+    "lodash.clonedeep": "^4.5.0",
     "normalize.css": "8.0.1",
     "nprogress": "^0.2.0",
     "vue": "^2.6.10",
@@ -51,6 +52,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.8.0",
     "@vue/babel-preset-jsx": "^1.1.2",
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-e2e-cypress": "3.12.1",
@@ -63,11 +65,14 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
+    "babel-plugin-jsx-v-model": "^2.0.3",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
     "clipboard": "2.0.4",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.0.1",
+    "json-parse-better-errors": "^1.0.2",
     "lint-staged": "^9.5.0",
     "stylelint": "^12.0.0",
     "stylus": "^0.54.7",

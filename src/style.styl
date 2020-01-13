@@ -1,0 +1,69 @@
+
+.d-select {
+
+}
+
+.field-map {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.field-item {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.field-required {
+  margin: 1px 4px 0 0;
+  font-size: 14px;
+  color: red;
+  font-family: SimSun, sans-serif;
+}
+
+.field-flex-column {
+  .field-label {
+    display: inline-flex;
+    margin: 0 0 8px;
+  }
+}
+.field-flex-row {
+  display: flex;
+  align-items: center;
+
+  .field-label {
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 120px;
+  }
+
+  .fiele-title  {
+    &:after {
+      content: ':';
+      position: relative;
+      margin: 0 10px 0 2px;
+    }
+  }
+}
+
+
+.doing {
+  display: flex;
+  height: 36px;
+  align-items: center;
+  color: gray;
+}
+
+.d-upload-picture-card {
+  .el-upload-list__item,
+  .el-upload--picture-card {
+    width: 64px;
+    height: 64px;
+  }
+
+  .el-upload--picture-card {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
