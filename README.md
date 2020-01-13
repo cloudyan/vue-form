@@ -1,6 +1,6 @@
 # vue-form-render
 
-参考 [form-render](https://github.com/alibaba/form-render) 实现
+受 [form-render](https://github.com/alibaba/form-render) 影响实现
 
 输入 json-schema 自动渲染布局
 
@@ -26,10 +26,10 @@
 ## 用法
 
 ```jsx
-import AutoRender from '@tobeai/auto-render'
+import FormRender from '@dwdjs/form-render'
 
 <template>
-  <AutoRender
+  <FormRender
     :schema="schema.propsSchema"
     :formData="schema.formData"
     @change="change"
