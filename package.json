@@ -10,6 +10,7 @@
     "serve": "vue-cli-service serve ./demo/main.js",
     "build": "vue-cli-service build --progress --report",
     "package": "vue-cli-service build --target lib --name form-render ./src/index.js",
+    "prepublish": "npm run package",
     "lint": "vue-cli-service lint",
     "dll": "vue-cli-service dll",
     "commit": "npm run lint & npx git-cz",
