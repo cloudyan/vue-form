@@ -1,5 +1,5 @@
 {
-  "name": "@deepjs/vue-form-render",
+  "name": "@tobeai/form-render",
   "version": "0.0.1",
   "scripts": {
     "serve": "vue-cli-service serve ./demo/main.js",
@@ -23,10 +23,12 @@
   },
   "keywords": [
     "vue-form-render",
-    "dwdjs"
+    "form-render",
+    "auto-render",
+    "tobeai"
   ],
   "author": "cloudyan <1395093509@qq.com>",
-  "license": "MIT",
+  "license": "GPL",
   "bugs": {
     "url": "https://github.com/cloudyan/vue-form-render/issues"
   },
