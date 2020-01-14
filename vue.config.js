@@ -18,6 +18,19 @@ module.exports = {
   assetsDir: __DEV__ ? './' : './static',
   configureWebpack: config => {
     config.resolve.extensions.push('.css', '.styl', '.less', '.md')
+
+    if (__PROD__) {
+      config.output.libraryExport = 'default'
+
+      config.externals = {
+        'form-render': {
+          commonjs: 'form-render',
+          commonjs2: 'form-render',
+          amd: 'form-render',
+          root: 'FormRender',
+        },
+      }
+    }
   },
   chainWebpack: config => {
     config.resolve.alias

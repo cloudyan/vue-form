@@ -237,4 +237,8 @@ const AutoRender = {
   },
 }
 
+if (typeof window !== 'undefined' && 'Vue' in window) {
+  window.Vue.component('AutoRender', AutoRender)
+}
+
 export default AutoRender

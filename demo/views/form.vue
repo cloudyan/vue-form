@@ -1,7 +1,7 @@
 <template>
   <el-container class="app-container" style="padding: 0;">
     <el-header class="schema-select flex-middle">
-      <auto-render
+      <form-render
         :schema="tabs.propsSchema"
         :formData="tabs.formData"
         @change="changeSchema"
@@ -10,7 +10,7 @@
     <el-container style="height: calc(100vh - 60px); padding: 0;">
       <el-aside class="h-100" width="40%" style="margin: 0;">
         <pre class="schema-preview">{{ schemaStr }}</pre>
-        <!-- <auto-render
+        <!-- <form-render
           :schema="editor.propsSchema"
           :formData="editor.formData"
           @change="changeEditor"
@@ -18,7 +18,7 @@
         /> -->
       </el-aside>
       <el-main class="form-preview h-100" style="padding-bottom: 100px;">
-        <auto-render
+        <form-render
           :schema="schema.propsSchema"
           :formData="schema.formData"
           @change="changePreview"
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import AutoRender from '@/index'
+import FormRender from '@/'
 import * as schemaObj from '../data/form'
 // import objStringify from 'obj-stringify'
 import { cloneDeep } from '../utils'
@@ -42,7 +42,7 @@ import { cloneDeep } from '../utils'
 export default {
   name: 'page-form',
   components: {
-    AutoRender,
+    FormRender,
   },
   data() {
     return {

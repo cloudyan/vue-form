@@ -28,8 +28,9 @@ Object.assign(widgets, {
 })
 Object.assign(mapping, { doing: 'doing' })
 
-export default {
+const FormRender = {
   functional: true,
+  name: 'FormRender',
   props: {
     vname: {
       type: String,
@@ -83,3 +84,9 @@ export default {
     )
   },
 }
+
+if (typeof window !== 'undefined' && 'Vue' in window) {
+  window.Vue.component('form-render', FormRender)
+}
+
+export default FormRender
