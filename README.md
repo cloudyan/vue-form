@@ -25,16 +25,40 @@
 
 ## 用法
 
-```jsx
-import FormRender from '@dwdjs/form-render'
-
+```vue
 <template>
   <FormRender
     :schema="schema.propsSchema"
     :formData="schema.formData"
-    @change="change"
+    @change="changeSchema"
   />
 </template>
+
+
+<script>
+import FormRender from '@dwdjs/form-render'
+
+export default {
+  components: {
+    FormRender,
+  },
+
+  data() {
+    return {
+      schema: {
+        propsSchema: {},
+        formData: {},
+      },
+    }
+  },
+
+  methods: {
+    changeSchema(val) {
+      this.schema.formData = val
+    },
+  },
+}
+</script>
 ```
 
 
